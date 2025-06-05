@@ -6,7 +6,7 @@ class Solution {
         for(int num : nums){
             if(hm.containsKey(num)){
                 cnt+=hm.get(num);
-                hm.put(num,hm.getOrDefault(num,0)+1);
+                hm.put(num,hm.get(num)+1);
             }else{
                 hm.put(num,1);
             }
