@@ -6,9 +6,7 @@ class Solution {
         String s="";
 
        for(int i=0; i<values.length; i++){
-            if(num==0){
-                return s;
-            }
+            
             while(num >= values[i]){
                 s+=symbols[i];
                 num-=values[i];
