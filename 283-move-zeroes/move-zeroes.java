@@ -4,7 +4,8 @@ class Solution {
 
         for(int num : nums){
             if(num != 0){
-                nums[idx++]=num;
+                nums[idx]=num;
+                idx++;
             }
         }
         while(idx < nums.length){
