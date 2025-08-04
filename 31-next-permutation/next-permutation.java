@@ -4,39 +4,37 @@ class Solution {
     public void nextPermutation(int[] A) {
         int n = A.length;
         int ind = -1;
+
         for (int i = n - 2; i >= 0; i--) {
             if (A[i] < A[i + 1]) {
                 ind = i;
                 break;
             }
         }
-
         if (ind == -1) {
-            reverse(A, 0, n - 1);
+            for (int l = 0, r = n - 1; l < r; l++, r--) {
+                int temp = A[l];
+                A[l] = A[r];
+                A[r] = temp;
+            }
             return;
         }
-
-        
         for (int i = n - 1; i > ind; i--) {
             if (A[i] > A[ind]) {
-                swap(A, i, ind);
+                int temp = A[i];
+                A[i] = A[ind];
+                A[ind] = temp;
                 break;
             }
         }
-        reverse(A, ind + 1, n - 1);
-    }
-    private void reverse(int[] arr, int start, int end) {
-        while (start < end) {
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start++;
-            end--;
+
+        int l = ind + 1, r = n - 1;
+        while (l < r) {
+            int temp = A[l];
+            A[l] = A[r];
+            A[r] = temp;
+            l++;
+            r--;
         }
-    }
-    private void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
     }
 }
