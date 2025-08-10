@@ -13,6 +13,6 @@ class Solution {
             }
             res+=first[i];
         }
-        return res.toString();
+        return res;
     }
 }
