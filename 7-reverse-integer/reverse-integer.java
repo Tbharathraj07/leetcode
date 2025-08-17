@@ -6,6 +6,7 @@ class Solution {
             int digit = x % 10;
             rev = rev * 10 + digit;
             x = x / 10;
+            digit=0;
         }
         
         if (rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE) {
