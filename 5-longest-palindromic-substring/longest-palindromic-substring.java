@@ -1,26 +1,11 @@
 class Solution {
     public String solve(String s,int left,int right){
         String res="";
-        if(left==right)
-            res+=s.charAt(left);
-        else{
-            if(s.charAt(left)==s.charAt(right)){
-                res+=s.charAt(left);
-                res+=s.charAt(right);
-            }
-            else
-            {
-                return "";
-            }
-        }
-        left--;
-        right++;
         while(left>=0 && right<s.length() && s.charAt(left)==s.charAt(right)){
-            res = s.charAt(left) + res + s.charAt(right);
             left--;
             right++;
         }
-        return res;
+        return s.substring(left+1,right);
     }
     public String longestPalindrome(String s) {
         int n=s.length();
@@ -35,7 +20,7 @@ class Solution {
         }
         for(int i=0;i<n-1;i++){
             String even=solve(s,i,i+1);
-            System.out.println(even);
+            //System.out.println(even);
             if(even.length()>ans.length())
                 ans=even;
         }
