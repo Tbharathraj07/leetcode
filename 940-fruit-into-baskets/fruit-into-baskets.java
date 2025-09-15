@@ -1,22 +1,21 @@
 class Solution {
     public int totalFruit(int[] fruits) {
         HashMap<Integer,Integer>hm=new HashMap<>();
-        int left=0,len=0,maxlen=0;
+        int left=0,maxlen=0;
 
-        for(int right=0; right<fruits.length; right++){
+        for(int right =0; right<fruits.length; right++){
             int val=fruits[right];
             hm.put(val,hm.getOrDefault(val,0)+1);
+
             while(hm.size() > 2){
-                int leftVal = fruits[left];
-                hm.put(leftVal, hm.get(leftVal) - 1);
-                if (hm.get(leftVal) == 0) {
-                    hm.remove(leftVal);
+                int Left=fruits[left];
+                hm.put(Left,hm.get(Left)-1);
+                if(hm.get(Left)==0){
+                    hm.remove(Left);
                 }
                 left++;
             }
-            
-            len=right-left+1;
-            maxlen=Math.max(maxlen,len);
+            maxlen=Math.max(maxlen,right-left+1);
         }
         return maxlen;
     }
