@@ -10,7 +10,7 @@ class Solution {
             }
             else{
                 if(st.empty())
-                    return false;
+                   return false;
                 char x = st.peek();
                 if((ch == ')' && x=='(') || (ch == '}' && x == '{') || (ch==']' && x=='[') ){
                     st.pop();
