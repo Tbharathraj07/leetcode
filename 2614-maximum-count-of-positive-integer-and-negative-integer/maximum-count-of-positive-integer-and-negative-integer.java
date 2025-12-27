@@ -1,23 +1,21 @@
 class Solution {
-    public int LeftMost(int nums[], int target){
-        int l=0;
-        int r=nums.length-1;
-        int mid=0;
+    private int leftMost(int []nums,int target){
+        int low=0,high=nums.length-1;
 
-        while(l<=r){
-            mid=l+(r-l)/2;
+        while(low <= high){
+            int mid=low + (high-low)/2;
             if(nums[mid]>=target){
-                r=mid-1;
+                high=mid-1;
             }else{
-                l=mid+1;
+                low=mid+1;
             }
         }
-          return l;
+        return low;
     }
     public int maximumCount(int[] nums) {
-       int neg = LeftMost(nums,0);
-       int one= LeftMost(nums,1);
-       int pos=nums.length-one;
-       return Math.max(neg,pos);
+        int zero=leftMost(nums,0);
+        int one=leftMost(nums,1);
+        int pos=nums.length-one;
+        return Math.max(pos,zero);
     }
 }
