@@ -18,7 +18,7 @@ class Solution {
     }
     public int minimizedMaximum(int n, int[] quantities) {
         int low=1;
-        int high=(int)Math.pow(10,5);
+        int high=Integer.MAX_VALUE;
         while(low <= high){
             int mid=low + (high - low)/2;
 
