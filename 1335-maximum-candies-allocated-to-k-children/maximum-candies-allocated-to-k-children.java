@@ -1,27 +1,35 @@
 class Solution {
-    public boolean isPossible(int[] candies, long k, int mid){
+    private boolean isPossible(int[] candies, long k,int mid){
         int temp=0;
         for(int i=0; i<candies.length; i++){
-            int candy=candies[i];
-            temp = candy/mid;
-                k-=temp;
-                if(k<=0){
-                    return true;
-                }
+            int num=candies[i];
+
+            // if(k > num){
+            //     return false;
+            // }
+            temp=num/mid;
+            k-=temp;
+            if(k<=0){
+                return true;
+            }
         }
         return false;
     }
     public int maximumCandies(int[] candies, long k) {
-        int l=1;
-        int r=(int)Math.pow(10,7);
-        while(l<=r){
-            int mid=l+(r-l)/2;
+        int low=1;
+        int high=Integer.MAX_VALUE;
+        int ans=0;
+
+        while(low <= high){
+            int mid=low + (high-low)/2;
+
             if(isPossible(candies,k,mid)){
-                l=mid+1;
+                ans=mid;
+                low=mid+1;
             }else{
-                r=mid-1;
+                high=mid-1;
             }
         }
-        return r;
+        return ans;
     }
 }
