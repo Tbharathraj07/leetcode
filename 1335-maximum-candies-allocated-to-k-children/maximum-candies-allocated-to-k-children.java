@@ -4,9 +4,6 @@ class Solution {
         for(int i=0; i<candies.length; i++){
             int num=candies[i];
 
-            // if(k > num){
-            //     return false;
-            // }
             temp=num/mid;
             k-=temp;
             if(k<=0){
