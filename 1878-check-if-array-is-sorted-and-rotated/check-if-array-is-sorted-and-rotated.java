@@ -6,7 +6,6 @@ class Solution {
             if(nums[i] > nums[(i+1)%n])
                 cnt++;
         }
-        System.out.println(cnt);
         if(cnt <= 1){
             return true;
         }
