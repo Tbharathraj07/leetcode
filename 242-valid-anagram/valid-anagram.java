@@ -6,17 +6,22 @@ class Solution {
             return false;
         }
 
-        for(int i=0; i<s.length(); i++){
-            char ch=s.charAt(i);
-            hm.put(ch, hm.getOrDefault(ch,0)+1);
+        for(char x : s.toCharArray()){
+            hm.put(x, hm.getOrDefault(x,0)+1);
         }
-        for(char ch : t. toCharArray()){
-            if(!hm.containsKey(ch) || hm.get(ch)==0){
+
+        for(char x : t.toCharArray()){
+            
+            if(!hm.containsKey(x)){
                 return false;
             }
-            hm.put(ch, hm.get(ch)-1);
+
+            hm.put(x,hm.get(x)-1);
+
+            if(hm.get(x) < 0){
+                return false;
+            }
         }
         return true;
-        
     }
 }
